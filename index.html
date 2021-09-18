@@ -1,0 +1,367 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Multiscale modeling of natural hazards</title>
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/burntorange.css">
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="lib/css/zenburn.css">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+  <!-- MathJax -->
+  <!--offline access-->
+  <!--<script type="text/javascript" src="./mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>-->
+  <script type="text/javascript"
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+    </script>
+  <!-- Script for Video play back on Slide for multiple videos-->
+  <script src="js/video.js"></script>
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <!-- Section -->
+      <section>
+        <section>
+          <h2>Multiscale modeling of natural hazards</h2>
+          <h3>MPM and LBM-DEM</h3>
+          <p>
+            <br />Krishna Kumar, <a href="mailto:krishnak@utexas.edu">krishnak@utexas.edu</a>
+            <br />Rei Hosseini, Qiuyu (Amber) Wang, Chihun Sung and Thiago Araujo
+            <br />University of Texas at Austin
+          </p>
+          <br />
+          <div style="float: center; width: 100%;">
+            <img style="border:0;" src="images/themes/ut.png" width="50%">
+          </div>
+          <div style="clear: both; width: 100%">
+            <br />
+            <h4>2nd INLGEO</h4>
+            <h4>Tongji University, 17th Sep 2021</h4>
+          </div>
+        </section>
+        <!-- Scales of modeling -->
+        <section>
+          <h2>Scales of modeling</h2>
+          <figure>
+            <img style="border:0;" src="images/soil-scale.png" width="100%">
+          </figure>
+        </section>
+      </section>
+      <!---Aerial landslides-->
+      <section>
+        <section>
+          <h2>Oso landslide (2014)</h2>
+          <figure>
+            <img style="border:0;" src="images/oso-slide.png" width="80%">
+            <figcaption>8 million cubic meters of glacial deposits and water-filled debris material transported
+              to a distance of 1 km (Haugerud., 2014).</figcaption>
+          </figure>
+        </section>
+
+        <!-- Material Point Method -->
+        <section>
+          <h2>MPM Towards exascale simulations</h2>
+          <figure>
+            <img style="border:0;" src="images/mpm-hpc.png" width="100%">
+          </figure>
+        </section>
+
+        <!-- In-situ visualization-->
+        <section>
+          <h2>What is Ray Tracing?</h2>
+          <div style="float: left; width: 50%;">
+            <figure>
+              <img style="border:0;" src="images/raytracing/moana.png" width="100%">
+            </figure>
+          </div>
+          <div style="float: left; width: 50%;">
+            <figure>
+              <img style="border:0;" src="images/raytracing/intel-ospray.png" width="100%">
+            </figure>
+          </div>
+          <div style="float: clear; width: 100%">
+            <figure>
+              <img style="border:0;" src="images/raytracing/rtx-on-off-thanos.png" width="100%">
+            </figure>
+          </div>
+        </section>
+
+        <!-- Material Point Method -->
+        <section>
+          <h2>In-situ visualization</h2>
+          <figure>
+            <img style="border:0;" src="images/insitu-viz.png" width="100%">
+          </figure>
+        </section>
+
+        <!-- In-situ visualization-->
+        <section>
+          <h2>MPM Oso landslide rendering</h2>
+          <figure>
+            <img style="border:0;" src="images/raytracing/oso-viz.png" width="75%">
+          </figure>
+        </section>
+
+        <!--Insitu Viz -->
+        <section>
+          <h2>In-situ visualization of Oso with MPM and Galaxy</h2>
+          <video width="80%" controls loop muted>
+            <source src="media/in-situ-viz-mpm-oso.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </section>
+
+      </section>
+
+      <!-- Underwater landslides -->
+      <section>
+        <!--Submarine flow-->
+        <!--LBM DEM 10,000 particles-->
+        <section>
+          <h3>Microscale modeling of submarine flows</h3>
+          <br />
+          <video width="100%" controls loop>
+            <source src="media/a6_slope5.webm" type="video/webm">
+            Your browser does not support the video tag.
+          </video>
+        </section>
+        <!-- Collapse of a 0.8 on slopes: loose v dense -->
+        <section>
+          <h2>Loose v dense: Runout distance</h2>
+          <div style="float: left; width: 49%; border:0">
+            <figure>
+              <img style="border:0;" src="images/runout_loose_slope.png" width="100%">
+              <figcaption style="font-size: 80%; text-align: center; ">Loose</figcaption>
+            </figure>
+          </div>
+          <div style="float: right; width: 49%;">
+            <figure>
+              <img style="border:0;" src="images/runout_dense_slope.png" width="100%">
+              <figcaption style="font-size: 80%; text-align: center;">Dense</figcaption>
+            </figure>
+          </div>
+        </section>
+        <!-- Collapse of a 0.8 on slopes: loose v dense -->
+        <section>
+          <h2>Loose v dense: Initiation phase</h2>
+          <div style="float: left; width: 49%; border:0">
+            <figure>
+              <img style="border:0;" src="images/pwp_histogram_loose.png" width="100%">
+              <figcaption style="font-size: 80%; text-align: center; ">Loose</figcaption>
+            </figure>
+          </div>
+          <div style="float: right; width: 49%;">
+            <figure>
+              <img style="border:0;" src="images/pwp_histogram_dense.png" width="100%">
+              <figcaption style="font-size: 80%; text-align: center;">Dense</figcaption>
+            </figure>
+          </div>
+          <br />Pore-pressure distribution along the failure plane during initiation.
+        </section>
+        <!-- Collapse of a 0.8 on slopes: loose v dense -->
+        <section>
+          <h2>Loose v dense: Runout phase</h2>
+          <figure>
+            <img style="border:0;" src="images/slope_outline_dense_v_loose.png" width="60%">
+            <figcaption>Attack angle ('a' of 0.8) $t = 3 \tau_c $</figcaption>
+          </figure>
+        </section>
+        <!-- Collapse of a 0.8 on slopes: loose v dense -->
+        <section>
+          <h2>Loose v dense: Runout phase</h2>
+          <div style="float: left; width: 49%; border:0">
+            <figure>
+              <img style="border:0;" src="images/slope5_loose_15d_water_entrainment.png" width="100%">
+              <figcaption style="font-size: 80%; text-align: center; ">Loose</figcaption>
+            </figure>
+          </div>
+          <div style="float: right; width: 49%; border: 0;">
+            <figure>
+              <img style="border:0;" src="images/slope5_dense_15d_water_entrainment.png" width="100%">
+              <figcaption style="font-size: 80%; text-align: center;">Dense</figcaption>
+            </figure>
+          </div>
+          <div style="clear:both">
+            Water entrainment front (~15d length) at a slope of 5*
+          </div>
+        </section>
+
+        <!--Effect of volume 10,000 particles-->
+        <section>
+          <h3>Effect of volume: 1k v. 10k particles</h3>
+          <br />
+          <video width="100%" autoplay controls loop>
+            <source src="media/a04.webm" type="video/webm">
+            Your browser does not support the video tag.
+          </video>
+          <video width="100%" autoplay controls loop>
+            <source src="media/a08_r095_7000.webm" type="video/webm">
+            Your browser does not support the video tag.
+          </video>
+          <p>LBM Nodes = 50 Million : DEM grains = 10000 discs</p>
+        </section>
+
+        <!-- Effect of volume -->
+        <section>
+          <h2>Effect of volume on runout</h2>
+          <div style="float: left; width: 49%; border:0">
+            <figure>
+              <img style="border:0;" src="images/vol-neg-pore-pressures.png" width="100%">
+              <figcaption style="font-size: 80%; text-align: center; ">Negative pore pressures</figcaption>
+            </figure>
+          </div>
+          <div style="float: right; width: 49%; border: 0;">
+            <figure>
+              <img style="border:0;" src="images/vol-hydrodynamic-forces.png" width="100%">
+              <figcaption style="font-size: 80%; text-align: center;">Hydrodynamic forces</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <!-- Effect of volume -->
+        <section>
+          <h2>Effect of volume on runout</h2>
+          <div style="float: left; width: 49%; border:0">
+            <figure>
+              <img style="border:0;" src="images/vol-effective-stresses.png" width="100%">
+              <figcaption style="font-size: 80%; text-align: center; ">Effective stress</figcaption>
+            </figure>
+          </div>
+          <div style="float: right; width: 49%; border: 0;">
+            <figure>
+              <img style="border:0;" src="images/volume-runout.png" width="100%">
+              <figcaption style="font-size: 80%; text-align: center;">Volume v. Runout</figcaption>
+            </figure>
+          </div>
+        </section>
+      </section>
+      <section>
+        <!-- MPM Twophase -->
+        <section>
+          <h2>Faiure of unsaturated slopes</h2>
+          <video width="80%" controls loop muted>
+            <source src="media/levee-failure.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <p>Hirotoshi Mori - Public Works Research Institute (PWRI), Japan</p>
+        </section>
+        <!-- Multiphase LBM -->
+        <section>
+          <h2>Multiphase LBM: Effect of varying the contact angle</h2>
+          <div style="float: left; width: 33%; border:0">
+            <figure>
+              <img style="border:0;" src="images/lbm-hydrophilic.gif" width="100%">
+              <figcaption style="font-size: 80%; text-align: center; ">Fully hydrophilic surface <br />(θ = 0°)
+              </figcaption>
+            </figure>
+          </div>
+          <div style="float: left; width: 33%;">
+            <figure>
+              <img style="border:0;" src="images/lbm-hydrophobic.gif" width="100%">
+              <figcaption style="font-size: 80%; text-align: center; ">Fully hydrophobic surface <br />(θ = 180°)
+              </figcaption>
+            </figure>
+          </div>
+          <div style="float: left; width: 33%;">
+            <figure>
+              <img style="border:0;" src="images/lbm-neutral.gif" width="100%">
+              <figcaption style="font-size: 80%; text-align: center; ">Neutral surface <br />(θ = 90°)</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <!-- Multiphase LBM Hysteresis -->
+        <section>
+          <h2>Multiphase LBM: Hysteresis in Hamburg sand</h2>
+          <figure>
+            <img style="border:0;" src="images/injection-hamburg-sand.gif" width="70%">
+          </figure>
+        </section>
+        <!-- Multiphase LBM sphere -->
+        <section>
+          <h2>Multiphase LBM: Capillary structures</h2>
+          <figure>
+            <img style="border:0;" src="images/capillary-structures.png" width="100%">
+            <figcaption style="font-size: 80%; text-align: center; ">Neutral surface <br />(θ = 90°)</figcaption>
+          </figure>
+        </section>
+        <!-- Multiphase LBM Hysteresis -->
+        <section>
+          <h2>Multiphase LBM: Hysteresis</h2>
+          <figure>
+            <img style="border:0;" src="images/hysteresis-cycles-spheres.png" width="70%">
+          </figure>
+        </section>
+        <!-- Multiphase LBM Hysteresis -->
+        <section>
+          <h2>Multiphase LBM: Origin of Hysteresis</h2>
+          <figure>
+            <img style="border:0;" src="images/hysteresis-cluster-count.png" width="100%">
+          </figure>
+        </section>
+      </section>
+      <!-- Summary -->
+      <section>
+        <!-- Thank you! -->
+        <section data-background="images/themes/geoelements.png" data-background-size="100%">
+          <br /><br /><br />
+          <br /><br /><br /><br />
+          <h2>
+            <font color="white">
+              Krishna Kumar<br />
+            </font>
+          </h2>
+          <h3>
+            <font color="white">
+              krishnak@utexas.edu
+            </font>
+          </h3>
+          <br /><br /><br /><br /><br /><br />
+          <p><a href="http://www.geoelements.org">View the Geoelements website for
+              more information and software tools</a>
+          </p>
+        </section>
+      </section>
+      <!-- Special thanks to Chitra atthai! -->
+    </div>
+  </div>
+  <script src="lib/js/head.min.js"></script>
+  <script src="js/reveal.js"></script>
+  <script>
+    // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+      history: true,
+      slideNumber: 'c/t',
+      // More info https://github.com/hakimel/reveal.js#dependencies
+      dependencies: [{
+        src: 'plugin/markdown/marked.js'
+      }, {
+        src: 'plugin/markdown/markdown.js'
+      }, {
+        src: 'plugin/notes/notes.js',
+        async: true
+      }, {
+        src: 'plugin/highlight/highlight.js',
+        async: true,
+        callback: function () {
+          hljs.initHighlightingOnLoad();
+        }
+      }]
+    });
+  </script>
+</body>
+
+</html>
